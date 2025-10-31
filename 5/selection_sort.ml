@@ -14,4 +14,5 @@ let rec selection_sort list =
     | x::xs -> let minimum = find_minimal x xs in
                minimum::selection_sort (remove_el minimum (x::xs))
 ;;
+(*Example case*)
 selection_sort [7;6;5;4;3;2;1]
