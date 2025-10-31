@@ -11,5 +11,6 @@ let rec quicksort = function
   | x::xs -> (quicksort (smaller_or_equal x xs)) @ x :: (quicksort (greater x xs))
 ;;
 
+(*Slow as using @ operator and makes 2 sweeps of list to split around pivot*)
 (*Example case (also worst case)*)
 quicksort [7;6;5;4;3;2;1]
