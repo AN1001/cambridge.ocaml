@@ -1,5 +1,6 @@
 (*Consumes the first n terms of a sequence*)
 exception EndOfSeq
+(* Lazy List type def - called seq*)
 type 'a seq = Nil | Cons of 'a * (unit -> 'a seq)
 
 let hd = function
