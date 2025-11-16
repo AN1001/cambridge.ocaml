@@ -1,3 +1,4 @@
+(*Does BFS on a queue of trees (assumes the queue is well formed)*)
 exception EmptyQ
 type 'a queue = Q of 'a list * 'a list
 type 'a tree = Lf | Br of 'a * 'a tree * 'a tree
