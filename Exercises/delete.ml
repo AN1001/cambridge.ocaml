@@ -13,7 +13,9 @@ let rec remove_leftmost = function
 
 let rec delete k cmp = function
   | Lf -> raise KeyNotFound
-  | Br ((cur_k, _) as v, lt, rt) -> if cur_k = k then Br(get_leftmost rt, lt, remove_leftmost rt)
-                                                   else match cmp k cur_k with 
-                                                      | true -> Br(v, delete k cmp lt, rt)
-                                                      | false -> Br(v, lt, delete k cmp rt)
+  | Br ((cur_k, _) as v, lt, rt) -> if cur_k = k then match rt with
+                                                        | Lf -> lt
+                                                        | _ -> Br(get_leftmost rt, lt, remove_leftmost rt)
+                                                 else match cmp k cur_k with 
+                                                   | true -> Br(v, delete k cmp lt, rt)
+                                                   | false -> Br(v, lt, delete k cmp rt)
