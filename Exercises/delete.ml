@@ -1,4 +1,5 @@
 (* Deletes a value from a dictionary stored as a binary search tree *)
+type 'a tree = Lf | Br of 'a * 'a tree * 'a tree
 exception KeyNotFound
 
 let rec get_leftmost = function
