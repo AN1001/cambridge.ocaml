@@ -1,6 +1,6 @@
 type 'a seq = Nil | Cons of 'a * (unit -> 'a seq)
 
-(* Concatenates a sequence of sequences *)
+(* Concatenates a sequence of sequences (i.e. flattens it) *)
 let rec concat_seq = function
   | Nil -> Nil
   | Cons (seq, t) ->
