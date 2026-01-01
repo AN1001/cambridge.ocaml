@@ -8,7 +8,9 @@ let rec map2 f = function
       | y::ys ->
         match map2 f (ys::xs) with
           | z::zs -> ((f y)::z)::zs
-          | _ -> _ (* Unreachable *)
+          | [] -> [] (* Unreachable, added for
+                        compiler exhaustiveness *)
 ;;
 
-map2 (fun x -> 0) [[1;2;3;4];[5;6];[7];[8];[9;10;11]]
+map2 (fun x -> x+x) [[1;2;3;4];[5;6];[7];[8];[9;10;11]]
+ 
